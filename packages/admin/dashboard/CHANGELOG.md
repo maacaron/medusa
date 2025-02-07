@@ -1,5 +1,29 @@
 # @medusajs/dashboard
 
+## 2.4.1
+
+### Patch Changes
+
+- [#11300](https://github.com/medusajs/medusa/pull/11300) [`6db96c80d05730a9188937599baba2602f4e2a92`](https://github.com/medusajs/medusa/commit/6db96c80d05730a9188937599baba2602f4e2a92) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(ui,types): Add Metadata form for collection
+
+- [#11338](https://github.com/medusajs/medusa/pull/11338) [`211997b137b64ad1c21bc4fc138195ce51d98ce4`](https://github.com/medusajs/medusa/commit/211997b137b64ad1c21bc4fc138195ce51d98ce4) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(dashboard): Remove wrongful import of utils function
+
+- [#11106](https://github.com/medusajs/medusa/pull/11106) [`fcd3e2226ee389e89cc5b03defda9852cf99f624`](https://github.com/medusajs/medusa/commit/fcd3e2226ee389e89cc5b03defda9852cf99f624) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - feat(ui,dashboard): Migrate SC tables to DataTable
+
+- [#11335](https://github.com/medusajs/medusa/pull/11335) [`7d208afb07a2ebf5f6a66b15139e31b03fda1e12`](https://github.com/medusajs/medusa/commit/7d208afb07a2ebf5f6a66b15139e31b03fda1e12) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(dashboard): Ensure conditional prices are assigned to region
+
+- [#11195](https://github.com/medusajs/medusa/pull/11195) [`9822bd930b55f1dfe9429cc3dfc1c2d0d4edc754`](https://github.com/medusajs/medusa/commit/9822bd930b55f1dfe9429cc3dfc1c2d0d4edc754) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - chore(ui,dashboard): Use radix-ui package
+
+- [#11285](https://github.com/medusajs/medusa/pull/11285) [`f07af7b93c86673e730dc4e5eba8df2572013f9f`](https://github.com/medusajs/medusa/commit/f07af7b93c86673e730dc4e5eba8df2572013f9f) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(dashboard,core-flows,types,medusa): Allow editing Order metadata
+
+- [#11196](https://github.com/medusajs/medusa/pull/11196) [`51d2960a5717c41e79312dd2269fb87e3a4a5b4c`](https://github.com/medusajs/medusa/commit/51d2960a5717c41e79312dd2269fb87e3a4a5b4c) Thanks [@kasperkristensen](https://github.com/kasperkristensen)! - fix(dashboard): Allow admins to update default Sales Channel and Stock Location
+
+- Updated dependencies [[`fcd3e2226ee389e89cc5b03defda9852cf99f624`](https://github.com/medusajs/medusa/commit/fcd3e2226ee389e89cc5b03defda9852cf99f624), [`65d8d6dc0eae23c7c969664d0c2d127511cc0bd9`](https://github.com/medusajs/medusa/commit/65d8d6dc0eae23c7c969664d0c2d127511cc0bd9), [`3cf430729698c5f62fb6e6d0ebf06ea930981653`](https://github.com/medusajs/medusa/commit/3cf430729698c5f62fb6e6d0ebf06ea930981653), [`9822bd930b55f1dfe9429cc3dfc1c2d0d4edc754`](https://github.com/medusajs/medusa/commit/9822bd930b55f1dfe9429cc3dfc1c2d0d4edc754)]:
+  - @medusajs/ui@4.0.5
+  - @medusajs/js-sdk@2.4.1
+  - @medusajs/admin-shared@2.4.1
+  - @medusajs/icons@2.4.1
+
 ## 2.4.0
 
 ### Minor Changes
