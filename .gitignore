@@ -12,6 +12,7 @@ node_modules
 packages/**/.yarn/*
 integration-tests/**/.yarn/*
 www/**/.yarn/*
+.yarnrc.yml
 
 .DS_Store
 

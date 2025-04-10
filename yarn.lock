@@ -25150,7 +25150,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"medusa-dev-cli@workspace:packages/cli/medusa-dev-cli":
+"medusa-dev-cli@workspace:^, medusa-dev-cli@workspace:packages/cli/medusa-dev-cli":
   version: 0.0.0-use.local
   resolution: "medusa-dev-cli@workspace:packages/cli/medusa-dev-cli"
   dependencies:
@@ -30080,6 +30080,7 @@ __metadata:
     import-from: ^3.0.0
     jest: ^29.7.0
     lint-staged: ^11.2.6
+    medusa-dev-cli: "workspace:^"
     microbundle: ^0.13.3
     pg-god: ^1.0.12
     prettier: ^2.7.1

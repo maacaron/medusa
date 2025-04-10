@@ -399,6 +399,8 @@ export const createOrderFulfillmentWorkflow = createWorkflow(
         "status",
         "region_id",
         "currency_code",
+        "display_id",
+        "email",
         "items.*",
         "items.variant.manage_inventory",
         "items.variant.allow_backorder",
