@@ -29,6 +29,10 @@ type OrderCreateFulfillmentFormProps = {
   requiresShipping: boolean
 }
 
+type ShippingSizeOption = {
+  shipping_size_option: string
+}
+
 export function OrderCreateFulfillmentForm({
   order,
   requiresShipping,
@@ -57,7 +61,9 @@ export function OrderCreateFulfillmentForm({
     )
   )
 
-  const form = useForm<zod.infer<typeof CreateFulfillmentSchema>>({
+  const form = useForm<
+    zod.infer<typeof CreateFulfillmentSchema> & ShippingSizeOption
+  >({
     defaultValues: {
       quantity: fulfillableItems.reduce(
         (acc, item) => {
@@ -90,6 +96,17 @@ export function OrderCreateFulfillmentForm({
     control: form.control,
   })
 
+  const shippingSizeOption = useWatch({
+    name: "shipping_size_option",
+    control: form.control,
+  })
+
+  const shipping_option_variants = [
+    { id: "small", name: "Gabaryt A" },
+    { id: "medium", name: "Gabaryt B" },
+    { id: "large", name: "Gabaryt C" },
+  ]
+
   const handleSubmit = form.handleSubmit(async (data) => {
     const selectedShippingOption = shipping_options.find(
       (o) => o.id === shippingOptionId
@@ -107,6 +124,13 @@ export function OrderCreateFulfillmentForm({
       form.setError("location_id", {
         type: "manual",
         message: t("orders.fulfillment.error.noLocation"),
+      })
+      return
+    }
+    if (!shippingSizeOption) {
+      form.setError("shipping_size_option", {
+        type: "manual",
+        message: "Please select a package size option",
       })
       return
     }
@@ -138,6 +162,7 @@ export function OrderCreateFulfillmentForm({
     const payload: HttpTypes.AdminCreateOrderFulfillment = {
       location_id: selectedLocationId,
       shipping_option_id: shippingOptionId,
+      metadata: { shippingSizeOption },
       no_notification: !data.send_notification,
       items,
     }
@@ -331,6 +356,49 @@ export function OrderCreateFulfillmentForm({
                       </span>
                     </Alert>
                   )}
+                </div>
+                <div className="py-8">
+                  <Form.Field
+                    control={form.control}
+                    name="shipping_size_option"
+                    render={({ field: { onChange, ref, ...field } }) => {
+                      return (
+                        <Form.Item>
+                          <div className="flex flex-col gap-2 xl:flex-row xl:items-center">
+                            <div className="flex-1">
+                              <Form.Label>Shipping method variants</Form.Label>
+                            </div>
+                            <div className="flex-1">
+                              <Form.Control>
+                                <Select onValueChange={onChange} {...field}>
+                                  <Select.Trigger
+                                    className="bg-ui-bg-base"
+                                    ref={ref}
+                                  >
+                                    {isShippingOptionsLoading ? (
+                                      <span className="text-right">
+                                        {t("labels.loading")}...
+                                      </span>
+                                    ) : (
+                                      <Select.Value />
+                                    )}
+                                  </Select.Trigger>
+                                  <Select.Content>
+                                    {shipping_option_variants.map((o) => (
+                                      <Select.Item key={o.id} value={o.id}>
+                                        {o.name}
+                                      </Select.Item>
+                                    ))}
+                                  </Select.Content>
+                                </Select>
+                              </Form.Control>
+                            </div>
+                          </div>
+                          <Form.ErrorMessage />
+                        </Form.Item>
+                      )
+                    }}
+                  />
                 </div>
                 <div>
                   <Form.Item className="mt-8">

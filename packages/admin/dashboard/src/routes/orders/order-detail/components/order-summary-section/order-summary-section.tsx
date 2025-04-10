@@ -649,7 +649,10 @@ const CostBreakdown = ({
                   <div>
                     <span className="txt-small text-ui-fg-subtle font-medium">
                       {sm.name}
-                      {sm.detail.return_id &&
+                      {(sm.data?.packageMachine as string) && (
+                        <> ({sm.data?.packageMachine})</>
+                      )}
+                      {sm.detail?.return_id &&
                         ` (${t("fields.returnShipping")})`}{" "}
                       <ShippingInfoPopover key={i} shippingMethod={sm} />
                     </span>
